@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_storage/home_screen.dart';
+import 'package:flutter_storage/view/home_screen.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
