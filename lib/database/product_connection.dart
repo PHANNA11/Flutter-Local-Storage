@@ -36,7 +36,16 @@ class ProductDatabase {
     List<Map<String, dynamic>> result = await db.query(productTable);
     return result.map((e) => ProductModel.fromMap(e)).toList();
   }
+
   // update database
+  Future<void> updateProduct({required ProductModel pro}) async {
+    var db = await initProductDatabase();
+    db.update(productTable, pro.toMap(), where: 'id=?', whereArgs: [pro.id]);
+  }
 
   // Delete Database
+  Future<void> deleteProduct({required int productId}) async {
+    var db = await initProductDatabase();
+    db.delete(productTable, where: 'id=?', whereArgs: [productId]);
+  }
 }
