@@ -48,4 +48,12 @@ class ProductDatabase {
     var db = await initProductDatabase();
     db.delete(productTable, where: 'id=?', whereArgs: [productId]);
   }
+
+  Future<List<ProductModel>> searchProducts({String? search}) async {
+    var db = await initProductDatabase();
+    List<Map<String, dynamic>> result = await db.rawQuery(
+        "SELECT * FROM $productTable WHERE name  LIKE ? OR price LIKE ?",
+        ['%$search%', '%$search%']);
+    return result.map((e) => ProductModel.fromMap(e)).toList();
+  }
 }
