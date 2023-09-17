@@ -16,6 +16,10 @@
 	<string>flutter_storage</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key> NSPhotoLibraryUsageDescription</key>
+	<string> Allow to Open Library Image</string>
+	<key> NSCameraUsageDescription</key>
+	<string> Allow to Open Camera Photo</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>

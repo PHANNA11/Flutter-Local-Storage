@@ -16,7 +16,7 @@ class ProductDatabase {
       join(path, 'procducts.db'),
       onCreate: (database, version) async {
         await database.execute(
-          'CREATE TABLE $productTable(id INTEGER PRIMARY KEY, name TEXT,price REAL)',
+          'CREATE TABLE $productTable(id INTEGER PRIMARY KEY, name TEXT,price REAL,description TEXT,image TEXT)',
         );
       },
       version: 1,

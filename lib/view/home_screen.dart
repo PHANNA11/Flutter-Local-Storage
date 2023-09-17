@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -118,30 +119,38 @@ class _HomeScreeenState extends State<HomeScreeen> {
                 width: 150,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://www.notebookcheck.net/fileadmin/_processed_/c/3/csm_AKA8518_984be0479c.jpg'))),
+                    image: DecorationImage(
+                        fit: BoxFit.cover, image: FileImage(File(pro!.image)))),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      pro!.name.toString(),
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      '\$${pro.price}',
-                      style: TextStyle(fontSize: 18, color: Colors.red),
-                    ),
-                  ],
+              Flexible(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        pro.name.toString(),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                            fontSize: 18,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        '\$${pro.price}',
+                        style: const TextStyle(fontSize: 18, color: Colors.red),
+                      ),
+                      Text(
+                        '\$${pro.description}',
+                        style: const TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

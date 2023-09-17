@@ -2,10 +2,14 @@ class ProductModel {
   late int id;
   late String name;
   late double price;
+  late String description;
+  late String image;
   ProductModel({
     required this.id,
     required this.name,
     required this.price,
+    required this.description,
+    required this.image,
   });
   // Convert Object to Map
   Map<String, dynamic> toMap() {
@@ -13,6 +17,8 @@ class ProductModel {
       'id': id,
       'name': name,
       'price': price,
+      'description': description,
+      'image': image
     };
   }
 
@@ -20,5 +26,7 @@ class ProductModel {
   ProductModel.fromMap(Map<String, dynamic> res)
       : id = res['id'],
         name = res['name'],
-        price = res['price'];
+        price = res['price'],
+        description = res['description'],
+        image = res['image'];
 }
