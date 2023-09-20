@@ -56,4 +56,13 @@ class ProductDatabase {
         ['%$search%', '%$search%']);
     return result.map((e) => ProductModel.fromMap(e)).toList();
   }
+
+  // not yet . it for test merge code
+  Future<List<ProductModel>> searchProductsByCategory({String? search}) async {
+    var db = await initProductDatabase();
+    List<Map<String, dynamic>> result = await db.rawQuery(
+        "SELECT * FROM $productTable WHERE name  LIKE ? OR price LIKE ?",
+        ['%$search%', '%$search%']);
+    return result.map((e) => ProductModel.fromMap(e)).toList();
+  }
 }
